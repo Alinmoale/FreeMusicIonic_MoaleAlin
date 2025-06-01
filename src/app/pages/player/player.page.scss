@@ -1,0 +1,28 @@
+.music-player {
+  text-align: center;
+  padding: 20px;
+}
+
+.music-player img {
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
+}
+
+.song-details h2,
+.song-details p {
+  margin: 0;
+  color: white;
+}
+
+.player-controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0;
+}
+
+ion-range {
+  --bar-background-active: white;
+  --knob-background: white;
+}

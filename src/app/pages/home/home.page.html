@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>Welcome to FreeMusic, {{ displayName }}!</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="navigateToSettings()">
+        <ion-icon slot="icon-only" name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="dark">
+  <ion-item-divider>
+    <ion-label>Top Tracks</ion-label>
+  </ion-item-divider>
+  <swiper-container [modules]="swiperModules" [slidesPerView]="2">
+    <swiper-slide *ngFor="let song of topTracks.slice(0, 5); let i = index">
+      <ion-card (click)="playTopTracks(i)">
+        <ion-img [src]="song.imageIcon"></ion-img>
+        <ion-card-header>
+          <ion-card-title>{{ song.title }}</ion-card-title>
+          <ion-card-subtitle>{{ song.artiste }}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </swiper-slide>
+  </swiper-container>
+
+  <ion-item-divider>
+    <ion-label>Top Artists</ion-label>
+  </ion-item-divider>
+  <swiper-container [modules]="swiperModules" [slidesPerView]="2">
+    <swiper-slide *ngFor="let song of topArtists.slice(0, 5); let i = index">
+      <ion-card (click)="playTopArtists(i)">
+        <ion-img [src]="song.imageIcon"></ion-img>
+        <ion-card-header>
+          <ion-card-title>{{ song.title }}</ion-card-title>
+          <ion-card-subtitle>{{ song.artiste }}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </swiper-slide>
+  </swiper-container>
+
+  <ion-item-divider>
+    <ion-label>All Songs</ion-label>
+  </ion-item-divider>
+  <swiper-container [modules]="swiperModules" [slidesPerView]="2">
+    <swiper-slide *ngFor="let song of songsFromGenius.slice(0, 5)">
+      <ion-card>
+        <ion-img [src]="song.header_image_thumbnail_url"></ion-img>
+        <ion-card-header>
+          <ion-card-title>{{ song.title }}</ion-card-title>
+          <ion-card-subtitle>{{ song.artist_names }}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </swiper-slide>
+  </swiper-container>
+
+  <ion-fab
+    *ngIf="isMusicPlaying"
+    slot="fixed"
+    vertical="bottom"
+    horizontal="end"
+  >
+    <ion-fab-button routerLink="/player">
+      <ion-icon name="play"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

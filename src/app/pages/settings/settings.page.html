@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>Here we are, {{ displayName }}!</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="dark">
+  <ion-title class="ion-text-center">{{ displayName }}'s Profile</ion-title>
+  <form (ngSubmit)="updateUsername()">
+    <ion-item>
+      <ion-label position="floating">Change username...</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="newUsername"
+        name="newUsername"
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-button expand="full" type="submit" color="warning">Update</ion-button>
+  </form>
+  <ion-button expand="full" color="warning" (click)="logout()"
+    >Log Out</ion-button
+  >
+</ion-content>

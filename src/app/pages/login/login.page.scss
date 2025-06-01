@@ -1,0 +1,46 @@
+.login-form {
+  .login-item {
+    --background: transparent;
+    --border-color: transparent;
+  }
+
+  ion-input {
+    color: white;
+  }
+
+  ion-label {
+    color: white;
+  }
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+
+  .logo {
+    width: 150px;
+    height: auto;
+  }
+}
+
+.forgot-password {
+  text-align: right;
+  margin-bottom: 10px;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 20px;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
