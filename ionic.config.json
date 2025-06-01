@@ -1,0 +1,7 @@
+{
+  "name": "FreeMusicIonic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
