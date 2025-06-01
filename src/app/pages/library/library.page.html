@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>Library</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="removeSongs()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="dark">
+  <ion-card (click)="play(song)" *ngFor="let song of songs">
+    <ion-img [src]="song.imageIcon"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{ song.title }}</ion-card-title>
+      <ion-card-subtitle>{{ song.artiste }}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>FreeMusic</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <div class="music-player">
+    <img src="{{ song.imageIcon }}" alt="Album Art" />
+    <div class="song-details">
+      <h2>{{ song.title }}</h2>
+      <p>{{ song.artiste }}</p>
+    </div>
+    <div style="display: flex; justify-content: flex-end">
+      <ion-button
+        fill="clear"
+        (click)="!isFavorite ? addToLibrary(song): removeFromLibrary(song)"
+      >
+        <ion-icon
+          size="large"
+          name="heart"
+          [color]="isFavorite ? 'danger' : 'medium'"
+        ></ion-icon>
+      </ion-button>
+    </div>
+    <ion-range min="0" [max]="30" [value]="currentPosition" color="light">
+      <ion-label color="light" slot="start">{{ currentPosition }}</ion-label>
+      <ion-label color="light" slot="end">30</ion-label>
+    </ion-range>
+    <div class="player-controls">
+      <ion-icon name="shuffle" size="large"></ion-icon>
+      <ion-button fill="clear" (click)="playPrevious()">
+        <ion-icon name="play-skip-back" size="large"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" (click)="togglePlay()">
+        <ion-icon
+          name="{{ playing ? 'pause' : 'play' }}"
+          size="large"
+        ></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" (click)="playNext()">
+        <ion-icon name="play-skip-forward" size="large"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" (click)="toggleRepeat()">
+        <ion-icon
+          size="large"
+          name="repeat"
+          [color]="repeat ? 'primary' : 'medium'"
+        ></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
